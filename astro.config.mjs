@@ -6,6 +6,7 @@ export default defineConfig({
   adapter: node({ mode: 'standalone' }),
   site: 'https://asyomei.org',
   vite: {
+    ssr: import.meta.env.PROD ? { noExternal: true } : undefined,
     define: {
       'import.meta.env.BUILD_DATE': JSON.stringify(getBuildDate()),
     },
