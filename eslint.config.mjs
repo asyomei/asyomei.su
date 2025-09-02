@@ -5,7 +5,10 @@ export default antfu({
   typescript: true,
   lessOpinionated: true,
   rules: {
+    'node/prefer-global/process': 'off',
     'unused-imports/no-unused-imports': 'off',
     'unused-imports/no-unused-vars': 'off',
+    'no-unused-vars': 'off',
+    'curly': 'off',
   },
 })

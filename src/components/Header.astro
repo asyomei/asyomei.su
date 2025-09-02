@@ -1,0 +1,61 @@
+---
+import kud from '~/assets/kud.gif'
+
+interface NavLink {
+  name: string
+  path: string
+  active?: boolean
+}
+
+const links: NavLink[] = [
+  { name: 'main', path: '/' },
+]
+
+const pathname = Astro.url.pathname.replace(/\/$/, '')
+const activeLink = links.find(x => x.path.replace(/\/$/, '') === pathname)
+if (activeLink) {
+  activeLink.active = true
+}
+---
+
+<header id="header">
+  <img src={kud.src} id="kud" title="wafu~" aria-hidden="true" transition:persist />
+  {links.map((link, i) => (
+    <>
+      {i > 0 && <span class="sep">/</span>}
+      <a href={link.path} class:list={[link.active && 'active']}>{link.name}</a>
+    </>
+  ))}
+</header>
+
+<style is:global>
+  #header {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  #header > .active {
+    font-weight: bold;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  #header > .sep {
+    color: var(--text-secondary);
+    user-select: none;
+  }
+
+  #kud {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #kud {
+      display: none;
+    }
+  }
+</style>

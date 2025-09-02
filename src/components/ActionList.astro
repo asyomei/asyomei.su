@@ -1,0 +1,37 @@
+---
+import { Action } from '~/backend/actions/types'
+import { formatDate, relativeDate } from '~/utils/format-date'
+
+interface Props {
+  actions: Action[]
+}
+
+const { actions } = Astro.props
+---
+
+<div class="actionlist">
+  {actions.map(action => (
+    <div class="actionlist-item">
+      <div class="content">
+        <a href={action.content.url}>{action.content.text}</a>
+      </div>
+      <div class="service">
+        @ <a href={action.service.url}>{action.service.name}</a>,
+        <span title={formatDate(action.date)}>{relativeDate(action.date)}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style is:global>
+  .actionlist {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    line-height: 18px;
+  }
+
+  .actionlist-item > .service {
+    color: var(--text-secondary)
+  }
+</style>

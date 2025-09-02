@@ -1,7 +1,57 @@
 ---
+import { fetchActions } from '~/backend/actions'
+import ActionList from '~/components/ActionList.astro'
+import Section from '~/components/Section.astro'
+import Table from '~/components/Table.astro'
 import DefaultLayout from '~/layouts/DefaultLayout.astro'
+
+const actions = await fetchActions()
 ---
 
 <DefaultLayout>
-  todo
+  <Section>hey</Section>
+
+  <Section>
+    i'm <b>asyomei</b> <br />
+    another person in this world <br />
+    lazy stupid airhead
+  </Section>
+
+  <Section title="info">
+    <Table>
+      <span>name</span>
+      <span>vadim</span>
+
+      <span>email</span>
+      <span>neko (at this domain)</span>
+
+      <span>birthday</span>
+      <span>feb 9</span>
+
+      <span>languages</span>
+      <span>ru, en</span>
+
+      <span>fav band</span>
+      <span><a href="https://currentsofficial.com">Currents</a></span>
+
+      <span>fav anime</span>
+      <span><a href="https://gochiusa.com">gochiusa</a></span>
+    </Table>
+  </Section>
+
+  <Section title="links">
+    <Table>
+      <span>telegram</span>
+      <span><a href="https://t.me/asyomei">@asyomei</a></span>
+
+      <span>matrix</span>
+      <span><a href="https://matrix.to/#/@asyomei:matrix.org">@asyomei:matrix.org</a></span>
+    </Table>
+  </Section>
+
+  {actions.length > 0 && (
+    <Section title="actions">
+      <ActionList actions={actions} />
+    </Section>
+  )}
 </DefaultLayout>
