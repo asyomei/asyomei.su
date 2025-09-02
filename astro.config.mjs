@@ -4,7 +4,7 @@ import { defineConfig, passthroughImageService } from 'astro/config'
 export default defineConfig({
   output: 'server',
   adapter: node({ mode: 'standalone' }),
-  site: 'https://asyomei.org',
+  site: 'https://asyomei.su',
   vite: {
     ssr: import.meta.env.PROD ? { noExternal: true } : undefined,
     define: {
