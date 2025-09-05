@@ -32,6 +32,12 @@ const actions = await fetchActions()
       <span>languages</span>
       <span>ru, en</span>
 
+      <span>fav color</span>
+      <span>#7e77bb <div id="fav-color" /> (it's from my avatar :D)</span>
+
+      <span>fav music</span>
+      <span>metal</span>
+
       <span>fav band</span>
       <span><A href="//currents">Currents</A></span>
 
@@ -56,3 +62,13 @@ const actions = await fetchActions()
     </Section>
   )}
 </DefaultLayout>
+
+<style is:global>
+  #fav-color {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: var(--border);
+    background-color: #7e77bb;
+  }
+</style>
