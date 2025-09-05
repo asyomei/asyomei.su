@@ -18,6 +18,9 @@ if (props.href?.startsWith('//')) {
   const path = props.href.slice(2).split('/')
   props.href = path.reduce((obj, key) => obj[key as never], url) as any
 }
+if (props.href?.startsWith('https://')) {
+  props.target = '_blank'
+}
 ---
 
 <a {...props}><slot /></a>
