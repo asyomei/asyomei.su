@@ -55,10 +55,28 @@ export const lastfm = swr({
         url: url.my.lastfm,
       },
       content: {
-        text: `${data.title} - ${data.artist}`,
+        text: `${formatTitle(data.title)} - ${formatArtist(data.artist)}`,
         url: data.url,
       },
       date: data.date,
     }
   },
 })
+
+function formatTitle(title: string): string {
+  return title
+    .replace(/\(feat\W.+?\)/i, '')
+    .replace(/\(.*(?:version|remastered|bonus|recorded).*?\)/i, '')
+    .replace(/\(instrumental\)/i, '[inst]')
+    .replace(/feat\. [^(]+/i, '')
+    .replace(/ {2,}/, ' ')
+    .trimEnd()
+}
+
+const artists = ['Invent, Animate']
+function formatArtist(artist: string): string {
+  const single = artists.find(x => artist.startsWith(x))
+  if (single) return single
+
+  return artist.replace(/^(.+?)[,;&].+/, '$1').trimEnd()
+}
