@@ -15,6 +15,7 @@ const { actions } = Astro.props
       <div class="content">
         <a href={action.content.url}>{action.content.text}</a>
       </div>
+      <div class="extra">{action.extra}</div>
       <div class="service">
         @ <a href={action.service.url}>{action.service.name}</a>,
         <span title={formatDate(action.date)}>{relativeDate(action.date)}</span>
@@ -31,7 +32,15 @@ const { actions } = Astro.props
     line-height: 18px;
   }
 
-  .actionlist-item > .service {
-    color: var(--text-secondary)
+  .actionlist-item > .extra {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .actionlist-item > :not(.content) {
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 16px;
   }
 </style>

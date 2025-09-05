@@ -8,5 +8,5 @@ export interface Action {
     url: string
   }
   date: Date
-  suffix?: string
+  extra?: string
 }
