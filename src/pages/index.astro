@@ -1,5 +1,6 @@
 ---
 import { fetchActions } from '~/backend/actions'
+import A from '~/components/A.astro'
 import ActionList from '~/components/ActionList.astro'
 import Section from '~/components/Section.astro'
 import Table from '~/components/Table.astro'
@@ -32,20 +33,20 @@ const actions = await fetchActions()
       <span>ru, en</span>
 
       <span>fav band</span>
-      <span><a href="https://currentsofficial.com">Currents</a></span>
+      <span><A href="//currents">Currents</A></span>
 
       <span>fav anime</span>
-      <span><a href="https://gochiusa.com">gochiusa</a></span>
+      <span><A href="//gochiusa">gochiusa</A></span>
     </Table>
   </Section>
 
   <Section title="links">
     <Table>
       <span>telegram</span>
-      <span><a href="https://t.me/asyomei">@asyomei</a></span>
+      <span><A href="//my/telegram">@asyomei</A></span>
 
       <span>matrix</span>
-      <span><a href="https://matrix.to/#/@asyomei:matrix.org">@asyomei:matrix.org</a></span>
+      <span><A href="//my/matrix">@asyomei:matrix.org</A></span>
     </Table>
   </Section>
 

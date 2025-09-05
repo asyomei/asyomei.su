@@ -1,0 +1,13 @@
+export const url = {
+  my: {
+    matrix: 'https://matrix.to/#/@asyomei:matrix.org',
+    telegram: 'https://t.me/asyomei',
+    github: 'https://github.com/asyomei',
+    projects: {
+      website: 'https://github.com/asyomei/asyomei.su',
+    },
+  },
+  currents: 'https://currentsofficial.com',
+  gochiusa: 'https://gochiusa.com',
+  teidesu: 'https://tei.su',
+} as const
