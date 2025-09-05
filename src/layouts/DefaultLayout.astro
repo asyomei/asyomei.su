@@ -33,18 +33,18 @@ import Header from '~/components/Header.astro'
 <style is:global>
   :root {
     --bg: snow;
-    --text-primary: #2c2866;
+    --text-primary: #662866;
     --text-accent: #5d55aa;
-    --text-secondary: black;
+    --text-secondary: #424242;
     --border: solid 1px var(--text-secondary);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #1f1a1d;
-      --text-primary: #afaadd;
-      --text-accent: #7e77bb;
-      --text-secondary: gray;
+      --text-primary: #df8fa2;
+      --text-accent: #8e88bb;
+      --text-secondary: #777;
     }
   }
 
@@ -59,7 +59,7 @@ import Header from '~/components/Header.astro'
   body {
     background-color: var(--bg);
     color: var(--text-primary);
-    font-family: ui-monospace, monospace;
+    font-family: ui-monospace, 'Liberation Mono', monospace;
     font-size: 14px;
     line-height: 16px;
     overflow-x: hidden;
@@ -68,11 +68,10 @@ import Header from '~/components/Header.astro'
 
   a {
     color: var(--text-accent);
-    text-decoration: none;
   }
 
   a:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   #outer {
@@ -87,11 +86,17 @@ import Header from '~/components/Header.astro'
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    width: 90%;
+    width: 100%;
     padding: 24px;
     gap: 24px;
-    border-left: var(--border);
-    border-right: var(--border);
+  }
+
+  @media (min-width: 420px) {
+    #main {
+      width: 90%;
+      border-left: var(--border);
+      border-right: var(--border);
+    }
   }
 
   @media (min-width: 500px) {
