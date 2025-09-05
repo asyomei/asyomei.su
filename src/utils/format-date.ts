@@ -11,7 +11,7 @@ export function relativeDate(date: Date) {
   if (hours < 24) return `${hours} hour${hours > 1 ? 's' : ''} ago`
 
   const days = hours / 24 | 0
-  if (days < 7) return `${days} day${days > 1 ? 's' : ''} ago`
+  if (days < 7) return days > 1 ? `${days} days ago` : 'yesterday'
 
   const weeks = days / 7 | 0
   if (weeks < 4) return `${weeks} week${weeks > 1 ? 's' : ''} ago`
