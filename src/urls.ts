@@ -11,5 +11,6 @@ export const url = {
   },
   currents: 'https://currentsofficial.com',
   gochiusa: 'https://gochiusa.com',
+  ayaya10h: 'https://youtu.be/D0q0QeQbw9U',
   teidesu: 'https://tei.su',
 } as const

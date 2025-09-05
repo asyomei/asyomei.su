@@ -61,6 +61,11 @@ const actions = await fetchActions()
       <ActionList actions={actions} />
     </Section>
   )}
+
+  <Section title="another (useless) links" class="list">
+    <p><A href="//ayaya10h">ayaya 10h</A> - why not</p>
+    <p><A href="/neko.gif" target="_blank">/neko.gif</A> - animated avatar from anime acchi kocchi</p>
+  </Section>
 </DefaultLayout>
 
 <style is:global>
@@ -70,5 +75,9 @@ const actions = await fetchActions()
     height: 10px;
     border: var(--border);
     background-color: #7e77bb;
+  }
+
+  .list {
+    line-height: 18px;
   }
 </style>
