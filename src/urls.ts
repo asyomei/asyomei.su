@@ -3,6 +3,7 @@ export const url = {
     matrix: 'https://matrix.to/#/@asyomei:matrix.org',
     telegram: 'https://t.me/asyomei',
     github: 'https://github.com/asyomei',
+    lastfm: 'https://last.fm/user/asyomei',
     projects: {
       website: 'https://github.com/asyomei/asyomei.su',
     },

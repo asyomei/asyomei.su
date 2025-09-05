@@ -1,5 +1,6 @@
 import type { Action } from './types'
 import z from 'zod/v4'
+import { url } from '~/urls'
 import { env } from '../env'
 import { HOUR, MINUTE, swr, ttlValidator } from '../swr'
 import { wafu } from '../utils/wafu'
@@ -51,13 +52,13 @@ export const lastfm = swr({
     return {
       service: {
         name: 'lastfm',
-        url: 'https://last.fm/user/asyomei',
+        url: url.my.lastfm,
       },
       content: {
         text: `${data.title} - ${data.artist}`,
         url: data.url,
       },
-      date: data.playing ? new Date() : data.date,
+      date: data.date,
     }
   },
 })
