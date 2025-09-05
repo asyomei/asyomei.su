@@ -14,13 +14,23 @@ export function swr<T>(opts: Options<T>): () => Promise<T> {
 
   let value: T
   let setAt = 0
+  let updating = false
 
   async function revalidate() {
-    value = await fetch(value)
-    setAt = Date.now()
+    if (updating) return
+    updating = true
+
+    try {
+      value = await fetch(value)
+      setAt = Date.now()
+    } finally {
+      updating = false
+    }
   }
 
   return async () => {
+    if (updating) return value
+
     if (setAt === 0) {
       await revalidate()
       return value
