@@ -1,5 +1,6 @@
 ---
 import kud from '~/assets/kud.gif'
+import A from './A.astro'
 
 interface NavLink {
   name: string
@@ -23,7 +24,7 @@ if (activeLink) {
   {links.map((link, i) => (
     <>
       {i > 0 && <span class="sep">/</span>}
-      <a href={link.path} class:list={[link.active && 'active']}>{link.name}</a>
+      <A href={link.path} class:list={[link.active && 'active']}>{link.name}</A>
     </>
   ))}
 </header>

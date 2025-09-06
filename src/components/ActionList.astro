@@ -1,6 +1,7 @@
 ---
 import { Action } from '~/backend/actions/types'
 import { formatDate, relativeDate } from '~/utils/format-date'
+import A from './A.astro'
 
 interface Props {
   actions: Action[]
@@ -13,11 +14,11 @@ const { actions } = Astro.props
   {actions.map(action => (
     <div class="actionlist-item">
       <div class="content">
-        <a href={action.content.url}>{action.content.text}</a>
+        <A href={action.content.url}>{action.content.text}</A>
       </div>
       <div class="extra">{action.extra}</div>
       <div class="service">
-        @ <a href={action.service.url}>{action.service.name}</a>,
+        @ <A href={action.service.url}>{action.service.name}</A>,
         <span title={formatDate(action.date)}>{relativeDate(action.date)}</span>
       </div>
     </div>
