@@ -43,7 +43,7 @@ export const github = swr({
       },
       content: {
         text: data.repo.name,
-        url: data.repo.url,
+        url: `https://github.com/${data.repo.name}`,
       },
       date: data.created_at,
     }
