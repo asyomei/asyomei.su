@@ -5,6 +5,7 @@ export const url = {
     telegram: 'https://t.me/asyomei',
     github: 'https://github.com/asyomei',
     lastfm: 'https://last.fm/user/asyomei',
+    shikimori: 'https://shikimori.one/asyomei',
     projects: {
       website: 'https://github.com/asyomei/asyomei.su',
     },
