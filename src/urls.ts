@@ -8,7 +8,7 @@ export const url = {
     framagit: 'https://framagit.org/asyomei',
     shikimori: 'https://shikimori.one/asyomei',
     projects: {
-      website: 'https://github.com/asyomei/asyomei.su',
+      website: 'https://framagit.org/asyomei/asyomei.su',
     },
   },
   currents: 'https://musicbrainz.org/artist/b7e442b4-30cd-4bd2-9238-032e74f7807d',
