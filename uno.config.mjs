@@ -24,7 +24,7 @@ export default defineConfig({
   ],
   theme: {
     backgroundColor: {
-      base: 'var(--bg-base)',
+      base: 'var(--bg)',
     },
     colors: {
       accent: 'var(--text-accent)',
