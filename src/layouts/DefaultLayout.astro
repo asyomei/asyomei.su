@@ -1,5 +1,6 @@
 ---
 import LoadingIndicator from 'astro-loading-indicator/component'
+import { SEO } from 'astro-seo'
 import { ClientRouter } from 'astro:transitions'
 import Footer from '~/components/Footer.astro'
 import Header from '~/components/Header.astro'
@@ -7,9 +8,10 @@ import Header from '~/components/Header.astro'
 interface Props {
   title?: string
   class?: string
+  description?: string
 }
 
-let { title = 'asyomei', class: className } = Astro.props
+let { title = 'asyomei', description, class: className } = Astro.props
 if (import.meta.env.DEV) title = `[${title}]`
 ---
 
@@ -20,7 +22,17 @@ if (import.meta.env.DEV) title = `[${title}]`
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
   <link rel="icon" href="/favicon.png" />
-  <title>{title}</title>
+  <SEO
+    {title}
+    description={description ?? 'personal asyomei\'s website'}
+    openGraph={{
+    basic: {
+      title,
+      type: 'profile',
+      image: 'https://asyomei.su/avatar320.png',
+    },
+  }}
+  />
   <ClientRouter transition:name="slide" />
   <LoadingIndicator color="var(--text-primary)" />
 </head>
