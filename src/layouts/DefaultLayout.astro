@@ -1,6 +1,5 @@
 ---
 import LoadingIndicator from 'astro-loading-indicator/component'
-import { SEO } from 'astro-seo'
 import { ClientRouter } from 'astro:transitions'
 import Footer from '~/components/Footer.astro'
 import Header from '~/components/Header.astro'
@@ -8,11 +7,20 @@ import Header from '~/components/Header.astro'
 interface Props {
   title?: string
   class?: string
-  description?: string
+  og?: Record<string, string>
 }
 
-let { title = 'asyomei', description, class: className } = Astro.props
+
+let { title = 'asyomei', og, class: className } = Astro.props
 if (import.meta.env.DEV) title = `[${title}]`
+
+const ogTags = Object.entries({
+  type: 'profile',
+  title: 'asyomei',
+  description: 'another person in this world&#10;lazy stupid airhead',
+  image: 'https://asyomei.su/avatar320.png',
+  ...og,
+})
 ---
 
 <html lang="en" transition:animate="none">
@@ -21,18 +29,9 @@ if (import.meta.env.DEV) title = `[${title}]`
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
+  {ogTags.map(([name, content]) => <meta property={`og:${name}`} {content} />)}
   <link rel="icon" href="/favicon.png" />
-  <SEO
-    {title}
-    description={description ?? 'personal asyomei\'s website'}
-    openGraph={{
-    basic: {
-      title,
-      type: 'profile',
-      image: 'https://asyomei.su/avatar320.png',
-    },
-  }}
-  />
+  <title>{title}</title>
   <ClientRouter transition:name="slide" />
   <LoadingIndicator color="var(--text-primary)" />
 </head>
