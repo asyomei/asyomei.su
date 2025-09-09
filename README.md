@@ -1,3 +1,3 @@
-# asyomei.org
+# asyomei.su
 
 my personal website
