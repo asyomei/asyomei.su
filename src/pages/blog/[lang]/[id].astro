@@ -23,7 +23,6 @@ const altText = { ru: 'на русском', en: 'on english' }[altLang]
 
 <DefaultLayout
   title={data.title}
-  class="text-content leading-normal"
   og={{
     title: data.title,
     description: data.description,
@@ -32,12 +31,14 @@ const altText = { ru: 'на русском', en: 'on english' }[altLang]
 >
   <Section class="pb-4 border-b-d">
     <div class="pb-3">
-      <h1 class="text-2xl text-primary">{data.title}</h1>
+      <h1 class="text-2xl">{data.title}</h1>
       <p class="text-secondary">{formatPostDate(data.created, lang)}</p>
     </div>
 
     <A href={altUrl}>{altText}</A>
   </Section>
 
-  <Post />
+  <div class="text-content flex flex-col gap-6 leading-normal">
+    <Post />
+  </div>
 </DefaultLayout>
