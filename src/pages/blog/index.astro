@@ -1,5 +1,6 @@
 ---
 import A from '~/components/A.astro'
+import Section from '~/components/Section.astro'
 import DefaultLayout from '~/layouts/DefaultLayout.astro'
 import { formatPostDate } from '~/utils/format-post-date'
 import { groupPostsByLang, importPosts } from '~/utils/import-posts'
@@ -10,6 +11,13 @@ const posts = groupPostsByLang(importPosts())
 ---
 
 <DefaultLayout>
+  <Section>
+    RSS:
+    <A href="/blog/en/rss.xml">english</A>
+    //
+    <A href="/blog/ru/rss.xml">русский</A>
+  </Section>
+
   {posts.map(post => (
     <article class="flex flex-col gap-2">
       <div class="flex gap-2 text-xl font-bold">
