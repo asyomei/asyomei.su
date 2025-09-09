@@ -28,6 +28,7 @@ export default defineConfig({
     },
     colors: {
       accent: 'var(--text-accent)',
+      content: 'var(--text-content)',
       primary: 'var(--text-primary)',
       secondary: 'var(--text-secondary)',
     },

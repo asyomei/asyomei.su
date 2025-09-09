@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets'
+import nya from '~/assets/nachoneko_nya.webp'
+import Section from '~/components/Section.astro'
+
+export const title = 'hello, blog!'
+export const description = 'the beginning of a great blog by asyomei'
+export const created = '2025-09-09'
+---
+
+<Section>
+  wow, it's my first post on this blog.
+  <br />
+  hi everyone, who read this right now ^^
+</Section>
+
+<Section>
+  i'll share all sorts of things: about me, not about me, about all sorts of things, idk.
+  <br />
+  it depends on my mood, desire, other factors.
+</Section>
+
+<Section>
+  i wanted to start my own blog cuz i saw in the anime how they also blogged there :D
+  <br />
+  that's when i realized that having your own blog is cool, and having it in your own style is even better.
+</Section>
+
+<Section>
+  for your convenience, the blog will be written in two languages: russian and english.
+  <br />
+  i'm not very good at english, but it'll be fine with a translator.
+</Section>
+
+<Section>
+  <Image src={nya} alt="nya" width="160" />
+</Section>
+
+<Section>
+  that's all. nya, woof, bye
+</Section>

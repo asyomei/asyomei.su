@@ -6,9 +6,10 @@ import Header from '~/components/Header.astro'
 
 interface Props {
   title?: string
+  class?: string
 }
 
-let { title = 'asyomei' } = Astro.props
+let { title = 'asyomei', class: className } = Astro.props
 if (import.meta.env.DEV) title = `[${title}]`
 ---
 
@@ -26,7 +27,7 @@ if (import.meta.env.DEV) title = `[${title}]`
 
 <body class="overflow-x-hidden overflow-y-scroll bg-base text-md text-primary leading-4 font-mono">
   <div class="min-h-screen w-full flex flex-col items-center">
-    <div class="min-h-screen w-full flex flex-col gap-6 p-6 md:(w-720px border-x-d)">
+    <div class:list={['min-h-screen w-full flex flex-col gap-6 p-6 md:(w-720px border-x-d)', className]}>
       <Header />
       <slot />
       <div class="flex-1" />
@@ -43,6 +44,7 @@ if (import.meta.env.DEV) title = `[${title}]`
     --text-primary: #662866;
     --text-accent: #5d55aa;
     --text-secondary: #424242;
+    --text-content: var(--text-primary);
     --border: solid 1px var(--text-secondary);
   }
 
@@ -52,6 +54,7 @@ if (import.meta.env.DEV) title = `[${title}]`
       --text-primary: #df8fa2;
       --text-accent: #8e88bb;
       --text-secondary: #777;
+      --text-content: #bea7b0;
     }
   }
 

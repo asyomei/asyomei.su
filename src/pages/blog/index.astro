@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content'
+import A from '~/components/A.astro'
+import DefaultLayout from '~/layouts/DefaultLayout.astro'
+import { formatPostDate } from '~/utils/format-post-date'
+import { groupPostsByLang, importPosts } from '~/utils/import-posts'
+
+export const prerender = true
+
+const posts = groupPostsByLang(importPosts())
+---
+
+<DefaultLayout>
+  {posts.map(post => (
+    <article class="flex flex-col gap-2">
+      <div class="flex gap-2 text-xl font-bold">
+        <A href={`/blog/en/${post.en.id}`}>{post.en.title}</A>
+        <span class="select-none text-secondary font-normal">//</span>
+        <A href={`/blog/ru/${post.ru.id}`}>{post.ru.title}</A>
+      </div>
+      <p class="text-secondary">{formatPostDate(post.en.created, 'en')}</p>
+      <div>
+        <p>[en] {post.en.description}</p>
+        <p>[ru] {post.ru.description}</p>
+      </div>
+    </article>
+  ))}
+</DefaultLayout>
