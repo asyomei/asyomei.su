@@ -7,13 +7,7 @@ interface Props {
 const { title, class: className } = Astro.props
 ---
 
-<section class:list={['section', className]}>
-  {title && <h2>--- {title} ---</h2>}
+<section class={className}>
+  {title && <h2 class="pb-3">--- {title} ---</h2>}
   <slot />
 </section>
-
-<style is:global>
-  .section > h2 {
-    padding-bottom: 12px;
-  }
-</style>

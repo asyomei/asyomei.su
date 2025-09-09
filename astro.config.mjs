@@ -1,5 +1,6 @@
 import node from '@astrojs/node'
 import { defineConfig, passthroughImageService } from 'astro/config'
+import UnoCSS from 'unocss/astro'
 
 export default defineConfig({
   output: 'server',
@@ -18,6 +19,7 @@ export default defineConfig({
     inlineStylesheets: 'never',
   },
   devToolbar: { enabled: false },
+  integrations: [UnoCSS()],
 })
 
 function getBuildDate() {

@@ -65,7 +65,7 @@ const actions = await fetchActions()
     </Section>
   )}
 
-  <Section title="another (useless) links" class="list">
+  <Section title="another (useless) links" class="leading-4.5">
     <p><A href="//ayaya10h">ayaya 10h</A> - why not</p>
     <p><A href="/neko.gif" target="_blank">/neko.gif</A> - animated avatar from anime acchi kocchi</p>
   </Section>
@@ -73,14 +73,6 @@ const actions = await fetchActions()
 
 <style is:global>
   #fav-color {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border: var(--border);
-    background-color: #7e77bb;
-  }
-
-  .list {
-    line-height: 18px;
+    @apply inline-block w-2.5 h-2.5 border-d bg-[#7e77bb];
   }
 </style>

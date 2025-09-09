@@ -10,38 +10,17 @@ interface Props {
 const { actions } = Astro.props
 ---
 
-<div class="actionlist">
+<div class="flex flex-col gap-2 leading-4.5">
   {actions.map(action => (
-    <div class="actionlist-item">
+    <div class="*:truncate">
       <div class="content">
         <A href={action.content.url}>{action.content.text}</A>
       </div>
-      <div class="extra">{action.extra}</div>
-      <div class="service">
+      <div class="text-sm color-secondary leading-4">{action.extra}</div>
+      <div class="text-sm color-secondary leading-4">
         @ <A href={action.service.url}>{action.service.name}</A>,
         <span title={formatDate(action.date)}>{relativeDate(action.date)}</span>
       </div>
     </div>
   ))}
 </div>
-
-<style is:global>
-  .actionlist {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    line-height: 18px;
-  }
-
-  .actionlist-item > * {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .actionlist-item > :not(.content) {
-    color: var(--text-secondary);
-    font-size: 12px;
-    line-height: 16px;
-  }
-</style>

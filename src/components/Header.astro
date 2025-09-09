@@ -19,44 +19,21 @@ if (activeLink) {
 }
 ---
 
-<header id="header">
-  <img src={kud.src} id="kud" title="wafu~" aria-hidden="true" transition:persist />
+<header class="relative flex justify-center gap-2">
+  <img
+    src={kud.src}
+    title="wafu~"
+    class="absolute right-0 top-0 motion-reduce:hidden"
+    aria-hidden="true"
+    transition:persist
+  />
   {links.map((link, i) => (
     <>
-      {i > 0 && <span class="sep">/</span>}
-      <A href={link.path} class:list={[link.active && 'active']}>{link.name}</A>
+      {i > 0 && <span class="select-none color-secondary">/</span>}
+      <A
+        href={link.path}
+        class:list={[link.active && 'font-bold color-primary decoration-none']}
+      >{link.name}</A>
     </>
   ))}
 </header>
-
-<style is:global>
-  #header {
-    position: relative;
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-  }
-
-  #header > .active {
-    font-weight: bold;
-    color: var(--text-primary);
-    text-decoration: none;
-  }
-
-  #header > .sep {
-    color: var(--text-secondary);
-    user-select: none;
-  }
-
-  #kud {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    #kud {
-      display: none;
-    }
-  }
-</style>
