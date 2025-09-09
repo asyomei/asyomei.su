@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
-import { groupPostsByLang, importPosts } from '~/utils/import-posts'
+import { importPosts } from '~/utils/import-posts'
+
+export const prerender = true
 
 export const GET: APIRoute = (ctx) => {
   const lang = ctx.params.lang as 'ru' | 'en'
