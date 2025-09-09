@@ -21,7 +21,7 @@ const altUrl = `/blog/${altLang}/${id}`
 const altText = { ru: 'на русском', en: 'on english' }[altLang]
 ---
 
-<DefaultLayout class="text-content leading-normal">
+<DefaultLayout title={data.title} class="text-content leading-normal">
   <Section class="pb-4 border-b-d">
     <div class="pb-3">
       <h1 class="text-2xl text-primary">{data.title}</h1>
