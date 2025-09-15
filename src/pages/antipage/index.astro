@@ -1,0 +1,39 @@
+---
+import A from '~/components/A.astro'
+import DefaultLayout from '~/layouts/DefaultLayout.astro'
+import signs from './_signs.json'
+
+export const prerender = true
+
+const pad = (n: number) => n.toString().padStart(3, '0')
+---
+
+<DefaultLayout>
+  <div class="text-secondary">
+    powered by <A href="//antichamber">antichamber</A>
+    <br />
+    very cool game
+  </div>
+
+  <div class="h-540px flex flex-col self-center gap-6 overflow-y-scroll pr-6">
+    {signs.map((text, i) => (
+      <div class="flex gap-6">
+        <img src={`/antichamber/${pad(i + 1)}.webp`} width="160" height="160" class="p-2 border-d" />
+        <div class="h-160px w-160px flex cursor-default items-center p-2 text-center text-4 leading-5 font-sans border-d">{text}</div>
+      </div>
+    ))}
+  </div>
+</DefaultLayout>
+
+<style is:global>
+  :root {
+    --bg: black;
+    --text-primary: white;
+    --text-secondary: #808080;
+    --text-accent: white;
+  }
+
+  #kud {
+    @apply hidden;
+  }
+</style>

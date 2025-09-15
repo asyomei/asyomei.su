@@ -12,6 +12,7 @@ interface NavLink {
 const links: NavLink[] = [
   { name: 'main', path: '/', match: /^\/?$/ },
   { name: 'blog', path: '/blog', match: /^\/blog/ },
+  { name: 'antipage', path: '/antipage', match: /^\/antipage/ },
 ]
 
 const { pathname } = Astro.url
@@ -23,6 +24,7 @@ if (activeLink) {
 
 <header class="relative flex justify-center gap-2">
   <img
+    id="kud"
     src={kud.src}
     title="wafu~"
     class="absolute right-0 top-0 <sm:hidden motion-reduce:hidden"
