@@ -33,7 +33,7 @@ const altText = altLang === 'en' ? 'on english' : 'на русском'
     <A href={`/antipage/${altLang}`}>{altText}</A>
   </div>
 
-  <div class="h-540px flex flex-col self-center gap-6 overflow-y-scroll pr-6">
+  <div class="h-540px flex flex-col self-center gap-6 overflow-y-scroll px-3">
     {signs.map((text, i) => (
       <div class="flex gap-6">
         <Image src={pics[i]} alt={`${i + 1}`} width="160" height="160" class="p-2 border-d" />
