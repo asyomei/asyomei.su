@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro'
+import { Image } from 'astro:assets'
 import A from '~/components/A.astro'
 import DefaultLayout from '~/layouts/DefaultLayout.astro'
 import signsRu from './_signs-ru.json'
@@ -12,13 +13,15 @@ export const getStaticPaths: GetStaticPaths = () => [
 
 export const prerender = true
 
+const pics = Object.values(
+  import.meta.glob('~/assets/antichamber/*.webp', { eager: true }),
+).map(x => (x as any).default)
+
 const lang = Astro.params.lang as 'ru' | 'en'
 const signs = { en: signsEn, ru: signsRu }[lang]
 
 const altLang = lang === 'en' ? 'ru' : 'en'
 const altText = altLang === 'en' ? 'on english' : 'на русском'
-
-const pad = (n: number) => n.toString().padStart(3, '0')
 ---
 
 <DefaultLayout title="antipage">
@@ -33,7 +36,7 @@ const pad = (n: number) => n.toString().padStart(3, '0')
   <div class="h-540px flex flex-col self-center gap-6 overflow-y-scroll pr-6">
     {signs.map((text, i) => (
       <div class="flex gap-6">
-        <img src={`/antichamber/${pad(i + 1)}.webp`} width="160" height="160" class="p-2 border-d" />
+        <Image src={pics[i]} alt={`${i + 1}`} width="160" height="160" class="p-2 border-d" />
         <div class=":uno: h-160px w-160px flex cursor-default items-center break-keep p-2 text-center leading-5 font-sans border-d">{text}</div>
       </div>
     ))}
