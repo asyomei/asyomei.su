@@ -1,4 +1,5 @@
 import type { Action } from './types'
+import { bsky } from './bsky'
 import { framagit } from './framagit'
 import { lastfm } from './lastfm'
 import { shikimori } from './shikimori'
@@ -6,7 +7,7 @@ import { shikimori } from './shikimori'
 const byDate = <T extends { date: Date }>(a: T, b: T) => b.date.getTime() - a.date.getTime()
 
 export async function fetchActions() {
-  const all = await Promise.all([lastfm(), shikimori(), framagit()])
+  const all = await Promise.all([lastfm(), shikimori(), framagit(), bsky()])
   const actions: Action[] = all.filter(x => x != null)
   actions.sort(byDate)
 
