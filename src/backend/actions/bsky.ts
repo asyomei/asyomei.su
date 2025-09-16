@@ -43,7 +43,7 @@ export const bsky = swr({
         url: url.my.bsky,
       },
       content: {
-        text: post.record.text.slice(0, 40) || '<no text>',
+        text: post.record.text.split('\n', 1)[0] || '<no text>',
         url: `${url.my.bsky}/post/${postId}`,
       },
       date: post.record.createdAt,
