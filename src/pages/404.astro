@@ -1,0 +1,13 @@
+---
+import A from '~/components/A.astro'
+import DefaultLayout from '~/layouts/DefaultLayout.astro'
+
+export const prerender = true
+---
+
+<DefaultLayout class="text-center">
+  <h2>404 Not Found</h2>
+  <span>There's no page :(</span>
+  <div />
+  <A href="/">Back to website</A>
+</DefaultLayout>

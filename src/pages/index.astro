@@ -1,0 +1,52 @@
+---
+import A from '~/components/A.astro'
+import Section from '~/components/Section.astro'
+import DefaultLayout from '~/layouts/DefaultLayout.astro'
+
+export const prerender = true
+---
+
+<DefaultLayout>
+  <Section>
+    <div class="flex items-center gap-8 <sm:(flex-col gap-3)">
+      <img src="/avatar320.jpg" height="100" width="100" class="rounded-full" />
+      <div class="flex flex-col leading-6 <sm:items-center">
+        <span class="text-xl">asyomei</span>
+        <span class="text-secondary">Another person in this world</span>
+      </div>
+      <div class="flex-1 <sm:hidden" />
+      <div class="flex gap-4">
+        <span>Russian (native)</span>
+        <span>English (bad)</span>
+      </div>
+    </div>
+  </Section>
+
+  <Section title="Personal info">
+    <span>I'm Vadim and live in Russia.</span>
+    <span>My birthday is February 9.</span>
+    <span>Lazy stupid airhead, but kind and cheerful :D</span>
+    <pre>{' '}</pre>
+    <span>
+      I'm a bit of a beginner <A href="//my/github">developer</A> and
+      currently studying (or at least trying to) a little bit of everything.
+    </span>
+    <pre>{' '}</pre>
+    <span>
+      I'm addicted to metal, specifically metalcore, deathcore, and post-hardcore.
+      And <A href="//my/lastfm">here</A>'s what I'm listening to.
+      My favorite band is <A href="//currents">Currents</A> — give them a listen sometime ;)
+    </span>
+    <pre>{' '}</pre>
+    <span>
+      I also love cute things — it's heartwarming {'<3'}.
+      My favorite anime is <A href="//gochiusa">Is the Order a Rabbit?</A>
+    </span>
+  </Section>
+
+  <Section title="Contact info">
+    <span>Telegram: <A href="//my/telegram">@asyomei</A></span>
+    <span>Matrix: <A href="//my/matrix">@asyomei:matrix.org</A></span>
+    <span>E-mail: neko <span class="text-secondary">at this domain</span></span>
+  </Section>
+</DefaultLayout>
