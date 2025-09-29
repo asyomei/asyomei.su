@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets'
+import { LastfmTrack } from '~/backend/services/lastfm'
+import A from '../A.astro'
+import Section from '../Section.astro'
+
+interface Props {
+  data: LastfmTrack
+}
+
+const { data } = Astro.props
+---
+
+<Section title={data.nowplaying ? 'Now playing' : 'Last played'}>
+  <div class="flex items-center gap-4 pt-2">
+    <Image src={data.cover} alt="cover" width="80" height="80" class="rounded-1/8" />
+    <div class="flex flex-col">
+      <span class="text-lg leading-7"><A href={data.url}>{data.title}</A></span>
+      <span>{data.artist}</span>
+    </div>
+  </div>
+</Section>

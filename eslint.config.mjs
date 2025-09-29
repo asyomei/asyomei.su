@@ -8,6 +8,7 @@ export default antfu({
   rules: {
     'node/prefer-global/process': 'off',
     'style/brace-style': ['warn', '1tbs'],
+    'ts/no-redeclare': 'off',
     'unused-imports/no-unused-imports': 'off',
     'unused-imports/no-unused-vars': 'off',
     'no-unused-vars': 'off',
