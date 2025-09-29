@@ -2,7 +2,7 @@ import { z } from 'astro/zod'
 import { env } from '~/env'
 import { addSearchParams } from '~/utils/search-params'
 import { USER_AGENT } from '../consts'
-import { HOUR, MINUTE, swr, ttlValidator } from '../swr'
+import { MINUTE, swr, ttlValidator } from '../swr'
 
 export type LastfmTrack = z.infer<typeof LastfmTrack>
 
@@ -35,8 +35,8 @@ const ResponseSchema = z.object({
 
 export const fetchLastfm = swr({
   validate: ttlValidator({
-    update: 3 * MINUTE,
-    refresh: 1 * HOUR,
+    refresh: 3 * MINUTE,
+    update: 1 * MINUTE,
   }),
   async fetch() {
     if (!env.LASTFM_TOKEN) return
