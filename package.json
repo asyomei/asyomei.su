@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.4.4",
-    "astro": "^5.14.0",
+    "astro": "^5.14.1",
     "tailwind-merge": "^2.6.0",
     "unocss": "^66.5.2"
   },
