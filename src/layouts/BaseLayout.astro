@@ -44,12 +44,23 @@ const ogTags = Object.entries({
 
 <style is:global>
   :root {
-    --bg: #202020;
-    --bg-overlay: #333333;
-    --bg-footer: #272727;
-    --text-primary: white;
-    --text-secondary: #ffffffb3;
+    --bg: #dddddd;
+    --bg-overlay: snow;
+    --bg-footer: snow;
+    --text-primary: black;
+    --text-secondary: #000000b3;
     --text-accent: #7e77bb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #202020;
+      --bg-overlay: #333333;
+      --bg-footer: #272727;
+      --text-primary: white;
+      --text-secondary: #ffffffb3;
+      --text-accent: #ffecb4;
+    }
   }
 
   * {
