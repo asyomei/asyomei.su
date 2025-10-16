@@ -1,6 +1,7 @@
 export const url = {
   my: {
     matrix: 'https://matrix.to/#/@asyomei:matrix.org',
+    bluesky: 'https://bsky.app/profile/did:web:asyomei.su',
     telegram: 'https://t.me/asyomei',
     github: 'https://github.com/asyomei',
     lastfm: 'https://last.fm/user/asyomei',
