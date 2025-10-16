@@ -1,24 +1,11 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import type { Paths } from 'type-fest'
-import { url } from '~/urls'
 
-interface Props extends HTMLAttributes<'a'> {
-  href?: (string & Record<never, never>) | keyof Urls
-}
+interface Props extends HTMLAttributes<'a'> {}
 
-type Keys = Paths<typeof url, { leavesOnly: true }>
-type ToUrl<K> = K extends `${infer A}.${infer B}` ? `${A}/${ToUrl<B>}` : K
-export type Urls = {
-  [K in Keys as `//${ToUrl<K>}`]: string
-}
-
-const { props } = Astro
-if (props.href?.startsWith('//')) {
-  const path = props.href.slice(2).split('/')
-  props.href = path.reduce((obj, key) => obj[key as never], url) as any
-}
-if (props.href?.startsWith('https://') || props.href?.startsWith('http://')) {
+const props = Astro.props
+const url = props.href?.toString()
+if (url?.startsWith('https://') || url?.startsWith('http://')) {
   props.target = '_blank'
 }
 ---
