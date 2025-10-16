@@ -1,15 +1,21 @@
 ---
 import { twMerge } from 'tailwind-merge'
+import A from './A.astro'
 
 interface Props {
   title?: string
+  href?: string
   class?: string
 }
 
-const { title, class: className } = Astro.props
+const { title, href, class: className } = Astro.props
 ---
 
 <section class={twMerge([':uno: mx-2 flex flex-col rounded-lg bg-overlay p-4', className])}>
-  {title && <h2 class="pb-2 text-lg">{title}</h2>}
+  {title && (
+    <div class="pb-2 text-lg">
+      {href ? <A {href} class="text-primary font-bold">{title}</A> : <span class="font-bold">{title}</span>}
+    </div>
+  )}
   <slot />
 </section>
