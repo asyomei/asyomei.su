@@ -2,7 +2,9 @@ import { defineConfig, presetWind3, transformerCompileClass, transformerDirectiv
 
 export default defineConfig({
   presets: [
-    presetWind3(),
+    presetWind3({
+      dark: 'media',
+    }),
   ],
   transformers: [
     transformerDirectives(),
