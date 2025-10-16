@@ -1,0 +1,18 @@
+---
+import { twMerge } from 'tailwind-merge'
+import Footer from '~/components/Footer.astro'
+import BaseLayout, { BaseLayoutProps } from './BaseLayout.astro'
+
+interface Props extends BaseLayoutProps {}
+
+const { class: className, ...props } = Astro.props
+---
+
+<BaseLayout {...props} class={twMerge('flex flex-col h-screen', className)}>
+  <div class="pb-6 <sm:pb-3" />
+  <div class=":uno: w-1/2 flex flex-col self-center gap-3 <sm:w-full max-[1080px]:w-2/3 max-[768px]:w-4/5">
+    <slot />
+  </div>
+  <div class="flex-1 pb-8" />
+  <Footer />
+</BaseLayout>

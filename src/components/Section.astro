@@ -1,0 +1,15 @@
+---
+import { twMerge } from 'tailwind-merge'
+
+interface Props {
+  title?: string
+  class?: string
+}
+
+const { title, class: className } = Astro.props
+---
+
+<section class={twMerge([':uno: mx-2 flex flex-col rounded-lg bg-overlay p-4', className])}>
+  {title && <h2 class="pb-2 text-lg">{title}</h2>}
+  <slot />
+</section>

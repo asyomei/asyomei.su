@@ -1,0 +1,66 @@
+---
+import { twMerge } from 'tailwind-merge'
+
+export type BaseLayoutProps = Props
+
+interface Props {
+  title?: string
+  og?: Record<string, string>
+  class?: string
+}
+
+const { title, og, class: className } = Astro.props
+
+let pageTitle = title ?? 'asyomei'
+if (import.meta.env.DEV) {
+   pageTitle = `[${pageTitle}]`
+}
+
+const ogTags = Object.entries({
+  type: 'profile',
+  title: 'asyomei',
+  description: 'Another person in this world',
+  image: 'https://asyomei.su/avatar320.jpg',
+  ...og,
+})
+---
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  {ogTags.map(([name, content]) => <meta property={`og:${name}`} {content} />)}
+  <link rel="icon" href="/favicon.png" />
+  <title>{pageTitle}</title>
+</head>
+
+<body class={twMerge('bg-base text-md leading-5 text-primary font-sans', className)}>
+  <slot />
+</body>
+
+</html>
+
+<style is:global>
+  :root {
+    --bg: #202020;
+    --bg-overlay: #333333;
+    --bg-footer: #272727;
+    --text-primary: white;
+    --text-secondary: #ffffffb3;
+    --text-accent: #7e77bb;
+  }
+
+  * {
+    @apply m-0 p-0 box-border text-size-inherit font-normal underline-offset-2;
+  }
+
+  h2 {
+    @apply font-bold;
+  }
+
+  a {
+    @apply text-accent;
+  }
+</style>
