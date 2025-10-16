@@ -8,50 +8,51 @@ import DefaultLayout from '~/layouts/DefaultLayout.astro'
 const lastfm = await fetchLastfm()
 ---
 
-<DefaultLayout>
+<DefaultLayout og={{ name: 'vadim' }}>
   <Section>
     <div class="flex items-center gap-8 <sm:(flex-col gap-3)">
       <img src="/avatar320.jpg" height="100" width="100" class="rounded-full" />
       <div class="flex flex-col leading-6 <sm:items-center">
-        <span class="text-xl">asyomei</span>
-        <span class="text-secondary">Another person in this world</span>
+        <span class="text-xl">Вадим</span>
+        <span class="text-secondary">@asyomei</span>
       </div>
       <div class="flex-1 <sm:hidden" />
       <div class="flex gap-4">
-        <span>Russian (native)</span>
+        <span>Русский (родной)</span>
         <span>English (bad)</span>
       </div>
     </div>
   </Section>
 
-  <Section title="Personal info">
-    <span>I'm Vadim and live in Russia.</span>
-    <span>My birthday is February 9.</span>
-    <span>Fox with a sword :D</span>
-    <pre>{' '}</pre>
-    <span>
-      I'm a bit of a beginner <A href="//my/github">developer</A> and
-      currently studying (or at least trying to) a little bit of everything.
-    </span>
-    <pre>{' '}</pre>
-    <span>
-      I'm addicted to metal, specifically metalcore, deathcore, and post-hardcore.
-      And <A href="//my/lastfm">here</A>'s what I'm listening to.
-      My favorite band is <A href="//currents">Currents</A> — give them a listen sometime ;)
-    </span>
-    <pre>{' '}</pre>
-    <span>
-      I also love cute things — it's heartwarming {'<3'}.
-      My favorite anime is <A href="//gochiusa">Is the Order a Rabbit?</A>
-    </span>
+  <Section title="Обо мне">
+    <span>Душа моя просится наружу,</span>
+    <span>Не в силах я ей отказать;</span>
+    <span>Так покажу я своё обличье всем,</span>
+    <span>Чтобы знали: есть среди вас человек,</span>
+    <span>Любви желающий и надежду помнящий;</span>
+    <span>Я такой же, как все, просто не похож на других</span>
+    <span>Своим стремлением к свободе;</span>
+    <span>Так знаю я цену своим тихим потугам,</span>
+    <span>Тлеющим в моей груди.</span>
   </Section>
 
-  <Section title="Contact info">
-    <span>Telegram: <A href="//my/telegram">@asyomei</A></span>
-    <span>Bluesky: <A href="//my/bluesky">@asyomei.su</A></span>
-    <span>Matrix: <A href="//my/matrix">@asyomei:matrix.org</A></span>
-    <span>E-mail: neko <span class="text-secondary">at this domain</span></span>
+  <Section title="Мои контакты">
+    <span>Telegram: <A href="https://t.me/asyomei">@asyomei</A></span>
+    <span>GitHub: <A href="https://github.com/asyomei">@asyomei</A></span>
+    <span>E-mail: <span id="email" class="cursor-default underline">показать</span></span>
   </Section>
 
   {lastfm && <LastTrack data={lastfm} />}
 </DefaultLayout>
+
+<script>
+  const email = document.getElementById('email')!
+  const name = document.head.querySelector('meta[property="og:name"]')!.getAttribute('content')!
+
+  email.onclick = () => {
+    const at = String.fromCharCode(Number.parseInt('100', 8))
+    email.textContent = name + at + location.hostname
+    email.className = ''
+    email.onclick = null
+  }
+</script>

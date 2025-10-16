@@ -11,9 +11,9 @@ interface Props {
 const { data } = Astro.props
 ---
 
-<Section title={data.nowplaying ? 'Now playing' : 'Last played'}>
+<Section title={data.nowplaying ? 'Сейчас играет' : 'Последнее прослушанное'} href="https://last.fm/user/asyomei">
   <div class="flex items-center gap-4 pt-2">
-    <Image src={data.cover} alt="cover" width="80" height="80" class="rounded-1/8" />
+    <Image src={data.cover} alt="" width="80" height="80" />
     <div class="flex flex-col">
       <span class="text-lg leading-7"><A href={data.url}>{data.title}</A></span>
       <span>{data.artist}</span>
