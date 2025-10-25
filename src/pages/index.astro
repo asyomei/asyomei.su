@@ -1,11 +1,7 @@
 ---
-import { fetchLastfm } from '~/backend/services/lastfm'
 import A from '~/components/A.astro'
 import Section from '~/components/Section.astro'
-import LastTrack from '~/components/services/LastTrack.astro'
 import DefaultLayout from '~/layouts/DefaultLayout.astro'
-
-const lastfm = await fetchLastfm()
 ---
 
 <DefaultLayout og={{ name: 'vadim' }}>
@@ -41,8 +37,6 @@ const lastfm = await fetchLastfm()
     <span>GitHub: <A href="https://github.com/asyomei">@asyomei</A></span>
     <span>E-mail: <span id="email" class="cursor-default underline">показать</span></span>
   </Section>
-
-  {lastfm && <LastTrack data={lastfm} />}
 </DefaultLayout>
 
 <script>
